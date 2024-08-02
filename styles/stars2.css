@@ -1,0 +1,81 @@
+/* stars.css */
+:root {
+  --unique-blackberry: #1e1f2a;
+  --unique-wisteria: #c79de2;
+  --unique-bubblegum: #fca8ce;
+  --unique-lemon-drop: #fecb40;
+  --unique-grass: #99c868;
+  --unique-serene-sea: #60c5dd;
+}
+
+.star-badge__char {
+  --char-width: 30px;
+
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: var(--char-width);
+  width: var(--char-width);
+  border-radius: 50%;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  transform-origin: center -100px;
+  background: linear-gradient(
+    to right,
+    var(--unique-wisteria),
+    var(--unique-bubblegum),
+    var(--unique-lemon-drop),
+    var(--unique-grass),
+    var(--unique-serene-sea)
+  );
+}
+
+@keyframes rotateBadge {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.star-badge {
+  --badge-size: 160px;
+  --badge-color: var(--black);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: var(--badge-size);
+  height: var(--badge-size);
+
+  background: var(--black);
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 0.9rem var(--badge-color);
+  position: relative;
+  animation: rotateBadge 20s linear infinite;
+}
+
+.content-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensure it is above the stars */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

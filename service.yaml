@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ssrrl8043fed
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/rl80-43fed/YOUR_IMAGE_NAME
+          env:
+            - name: VARIABLE_NAME
+              value: VARIABLE_VALUE

@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(#fff -100%, #888);
+  font-family: "Arial Black", "Archivo Black", sans-serif;
+  overflow: hidden;
+  cursor: none;
+}
+
+.scratchWin {
+  position: relative;
+  padding: 1rem 2rem 2rem 2rem;
+  background: linear-gradient(#78d6c6 -150%, #12486b);
+  border: 0.2rem solid #ffdc73;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0.2rem 0.2rem 1rem 0 rgba(0, 0, 56, 0.3);
+}
+
+@media screen and (max-width: 500px) {
+  .scratchWin {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .scratchWinCoin {
+    transform: scale(0.8);
+  }
+}
+
+.scratchWin:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    -70deg,
+    transparent,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 57%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  animation: shinning 6s infinite;
+  pointer-events: none;
+}
+
+@keyframes shinning {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.scratchWinTitle {
+  width: 100%;
+  margin: 0 auto 1rem;
+  color: #ffdc73;
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(#ffdc73, #a67c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scratchWinScratcher {
+  position: relative;
+  width: 20rem;
+  height: 10rem;
+}
+
+.scratchWinBackground,
+.scratchWinForeground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scratchWinBackground {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  background-color: #fff;
+  text-transform: uppercase;
+  font-size: 3.6rem;
+}
+
+.scratchWinBackground:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 0.5rem,
+    #888 0.5rem,
+    #888 0.6rem
+  );
+  opacity: 0.5;
+}
+
+.scratchWinReady .scratchWinBackground {
+  display: flex;
+}
+
+.scratchWinCoin {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--top) - 5rem);
+  left: calc(var(--left) - 3rem);
+  width: 6rem;
+  height: 6rem;
+  pointer-events: none;
+}
+
+.scratchWinCoinSide {
+  position: absolute;
+  top: -0.4rem;
+  left: 0;
+  z-index: -1;
+  width: calc(100% + 0.6rem);
+  height: calc(100% + 0.6rem);
+  border-radius: 50%;
+  outline: 0.1rem solid #a67c00;
+  background: repeating-linear-gradient(
+    90deg,
+    #d4af37 0,
+    #d4af37 0.5rem,
+    #ffdc73 0.5rem,
+    #ffdc73 0.7rem
+  );
+  box-shadow: 0 1rem 1rem -0.5rem rgba(0, 0, 56, 0.5);
+}
+
+@supports (-webkit-hyphens: none) {
+  .scratchWinCoinSide {
+    outline: none;
+  }
+}
+
+.scratchWinCoinBase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0.3rem dashed #d4af37;
+  outline: 0.1rem solid #a67c00;
+  border-radius: 50%;
+  background: radial-gradient(circle at 0 0, #ffdc73, #d4af37 150%);
+  box-shadow: inset 0 -0.1rem 0 0 #a67c00;
+}
+
+.scratchWinCoinBase:before,
+.scratchWinCoinBase:after {
+  content: "€";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 4rem;
+}
+
+.scratchWinCoinBase:before {
+  color: #a67c00;
+  transform: rotate(45deg) translateX(-0.4rem) translateY(-0.25rem);
+}
+
+.scratchWinCoinBase:after {
+  color: #d4af37;
+  transform: rotate(45deg) translateX(-0.3rem) translateY(-0.2rem);
+  background: -webkit-linear-gradient(#ffdc73 -50%, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
